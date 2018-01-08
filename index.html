@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Midi Fighter Web</title>
+
+  <style>
+    html {
+      background: url(https://cdn-resources.ableton.com/resources/uploads/zinnia/mad-zach-deep-house-preview.png) center;
+      background-size: cover;
+      background-blend-mode: multiply;
+      background-color: #2F80ED;
+    }
+
+    .controller-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      grid-gap: 10px;
+      width: 460px;
+      justify-content: center;
+      align-self: center;
+      justify-self: center;
+      align-items: center;
+      padding: 20px 20px;
+      background-color: white;
+      border-radius: 30px;
+      margin: 0 auto;
+      border: 10px solid black;
+      box-shadow:0px 20px 1px #eee;
+    }
+
+    button:nth-child(-n+4) {
+      width: 100px;
+      height: 20px;
+      border-radius: 0;
+      border: 5px solid black;
+    }
+
+    button {
+      width: 100px;
+      height: 100px;
+      background-color: #eeeeee;
+      border: 10px solid #2F80ED;
+      border-radius: 100%;
+      font-size: 18px;
+      ;
+    }
+
+    button:hover {
+      background-color: #eeeddd;
+      border: 10px solid #7bcbfe;
+    }
+
+    button:active {
+      background-color: yellow;
+    }
+
+    @keyframes button-change {
+      0% {
+        border-color: : red;
+      }
+      25% {
+        border-color: yellow;
+      }
+      100% {
+        border-color: white;
+      }
+    }
+
+    .animate {
+      animation: button-change 0.3s ease-in-out 1;
+    }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="controller-container">
+    <div class="button-container">
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button data-key="49">1</button>
+      <button data-key="50">2</button>
+      <button data-key="51">3</button>
+      <button data-key="52">4</button>
+      <button data-key="81">Q</button>
+      <button data-key="87">W</button>
+      <button data-key="69">E</button>
+      <button data-key="82">R</button>
+      <button data-key="65">A</button>
+      <button data-key="83">S</button>
+      <button data-key="68">D</button>
+      <button data-key="70">F</button>
+      <button data-key="90">Z</button>
+      <button data-key="88">X</button>
+      <button data-key="67">C</button>
+      <button data-key="86">V</button>
+    </div>
+  </div>
+  <a href="https://store.djtechtools.com">Midi Fighter 64</a>
+  <a href="https://store.djtechtools.com">Mad Zach Soundpacks</a>
+  <a href="https://store.djtechtools.com">Midi Fighter 3D</a>
+
+  <audio data-key="90" src="audio/audio_1.wav"></audio>
+  <audio data-key="88" src="audio/audio_2.wav"></audio>
+  <audio data-key="67" src="audio/audio_3.wav"></audio>
+  <audio data-key="86" src="audio/audio_4.wav"></audio>
+  <audio data-key="65" src="audio/audio_5.wav"></audio>
+  <audio data-key="83" src="audio/audio_6.wav"></audio>
+  <audio data-key="68" src="audio/audio_7.wav"></audio>
+  <audio data-key="70" src="audio/audio_8.wav"></audio>
+  <audio data-key="81" src="audio/audio_9.wav"></audio>
+  <audio data-key="87" src="audio/audio_10.wav"></audio>
+  <audio data-key="69" src="audio/audio_11.wav"></audio>
+  <audio data-key="82" src="audio/audio_12.wav"></audio>
+  <audio data-key="49" src="audio/audio_13.wav"></audio>
+  <audio data-key="50" src="audio/audio_14.wav"></audio>
+  <audio data-key="51" src="audio/audio_15.wav"></audio>
+  <audio data-key="52" src="audio/audio_16.wav"></audio>
+
+  <script>
+    function playAudio(e) {
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const key = document.querySelector(`button[data-key="${e.keyCode}"]`);
+      if (!audio) return;
+
+      audio.currentTime = 0;
+      audio.play();
+      key.classList.remove('animate')
+      void key.offsetWidth
+      key.classList.add('animate')
+
+    }
+
+
+    const arcade = Array.from(document.querySelectorAll('button'));
+    window.addEventListener('keydown', playAudio);
+  </script>
+</body>
+
+</html>
